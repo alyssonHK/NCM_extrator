@@ -1,0 +1,318 @@
+:root {
+    --bg-color: #1a1a1a;
+    --surface-color: #2a2a2a;
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --secondary-color: #6c757d;
+    --secondary-hover-color: #5a6268;
+    --success-color: #28a745;
+    --success-hover-color: #218838;
+    --text-color: #e0e0e0;
+    --text-muted-color: #8c8c8c;
+    --border-color: #444;
+    --error-color: #dc3545;
+    --font-family: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+#root {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.container {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+header p, .description {
+    color: var(--text-muted-color);
+    font-size: 0.9rem;
+}
+
+.upload-area {
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 150px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.upload-area.drag-over {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-color: var(--primary-hover-color);
+}
+
+.upload-area input[type="file"] {
+    display: none;
+}
+
+.upload-area p {
+    margin: 0.5rem 0;
+    color: var(--text-muted-color);
+}
+
+.upload-area .upload-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.file-list {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.file-item {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.ncm-filter-section {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.ncm-filter-section summary {
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem;
+    list-style: revert; /* Use default disclosure triangle */
+}
+
+.ncm-filter-section .filter-content {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.ncm-filter-section label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+.ncm-filter-section .description {
+    margin-bottom: 0.5rem;
+}
+
+.ncm-filter-section textarea {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    resize: vertical;
+}
+
+.ncm-filter-section input[type="file"] {
+    display: none;
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    text-align: center;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:not(:disabled):hover {
+    background-color: var(--primary-hover-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:not(:disabled):hover {
+    background-color: var(--secondary-hover-color);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-success:not(:disabled):hover {
+    background-color: var(--success-hover-color);
+}
+
+.btn-tertiary {
+    display: inline-block;
+    width: auto;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-tertiary:hover {
+    background-color: #3e3e3e;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.results-header h2 {
+    font-size: 1.5rem;
+}
+
+.results-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.table-container {
+    max-height: 500px;
+    overflow: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+thead th {
+    background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.status {
+    text-align: center;
+    margin: 2rem 0;
+    min-height: 30px;
+}
+
+.loader {
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-list {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(220, 53, 69, 0.1);
+    border: 1px solid var(--error-color);
+    border-radius: 4px;
+}
+
+.error-item {
+    color: var(--error-color);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    .container {
+        padding: 1rem;
+    }
+    .controls {
+        flex-direction: column;
+    }
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

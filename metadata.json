@@ -1,0 +1,5 @@
+{
+  "name": "NF-e XML Processor",
+  "description": "Upload NF-e XML files to extract item data and export to CSV.",
+  "requestFramePermissions": []
+}
